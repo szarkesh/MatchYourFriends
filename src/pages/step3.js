@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+
 import {
     Container,
     CenterColumn,
@@ -9,12 +10,39 @@ import {
     Button,
 } from "../shared.js";
 
+let accountSid = "AC137737e38e5f757d10fa5c5054465a70";
+let authToken = "AC137737e38e5f757d10fa5c5054465a70:81601203d44e1e9f240984dbb227d82c";
+const client = require("twilio")(accountSid, authToken);
+
 const Red = styled.span`
     color: #f76c6c;
     font-weight: bold;
 `;
 
 function Step3({ setTab, allData }) {
+    let sendMsgs = () => {
+        fetch("/api/messages", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                to: allData.contact[1].phone,
+                body: `A friend has decided you and ${allData.contact[2].name} would be a good match.`,
+            }),
+        });
+
+        fetch("/api/messages", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                to: allData.contact[2].phone,
+                body: `A friend has decided you and ${allData.contact[1].name} would be a good match.`,
+            }),
+        });
+    };
     return (
         <Container>
             <CenterColumn>
@@ -33,7 +61,7 @@ function Step3({ setTab, allData }) {
                         to snap ;).
                     </li>
                 </ol>
-                <Button>Send the text!</Button>
+                <Button onClick={() => sendMsgs()}>Send the text!</Button>
             </CenterColumn>
             <PrevButtonContainer>
                 <Button onClick={() => setTab(2)}>Back</Button>

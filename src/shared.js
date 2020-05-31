@@ -11,15 +11,24 @@ export const Button = styled.div`
     padding: 12px;
     font-size: 17px;
     cursor: ${(props) => (props.disabled ? "default" : "pointer")};
-    border-radius: 5px;
-    background-color: #f76c6c;
-    min-width: 100px;
-    color: white;
+    border-radius: 100px;
+    border: 1px solid #f76c6c;
+    background-color: #FFF2F2;
     text-align: center;
+    padding: 20px;
+    padding-top:15px;
+    padding-bottom:15px;
+    display:block;
+    width:fit-content;
+
+    display: inline-block
+    min-width: 100px;
+    color: #f76c6c;
     font-weight: bold;
     transition: 0.2s all;
     :hover {
-        background-color: #f78c8c;
+        background-color: #f76c6c;
+        color:white;
         ${(props) => (props.disabled ? "background: #DFDFDF" : "")}
     }
     ${(props) => (props.disabled ? "background: #DFDFDF" : "")}
@@ -51,14 +60,18 @@ export const Red = styled.span`
 
 export const Input = styled.input`
     padding: 10px 15px;
-    color: #333333;
-    border: 1px solid gray;
-    border-radius: 5px;
+    // box-shadow: 10px 10px 10px 0px #E5E5E5;
+    outline: 0;
+    border-width: 0 0 1px;
+    
+    border-color: darkgrey;
+    // border-radius: 5px;
     :focus {
-        border: 1px solid blue;
+        border-width: 0 0 1px;
+        border-color: skyblue;
     }
     display: block;
-    margin: 15px;
+    margin: 50px;
     font-size: 20px;
 `;
 

@@ -118,6 +118,8 @@ function Step2({ setTab, allData, setAllData, sent, setSent }) {
 
     return (
         <div>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+
             <AbsoluteCenter>
                 <h1>Now, what makes them a match?</h1>
                 <OverlapCircles>
@@ -131,10 +133,10 @@ function Step2({ setTab, allData, setAllData, sent, setSent }) {
                 </OverlapCircles>
             </AbsoluteCenter>
             <NextButtonContainer>
-                <Button onClick={() => setTab(3)}>Next</Button>
+                <Button onClick={() => setTab(3)}>Next <i style={{ marginLeft: "90px", }} class="fa fa-arrow-right"></i> </Button>
             </NextButtonContainer>
             <PrevButtonContainer>
-                <Button onClick={() => setTab(1)}>Back</Button>
+                <Button onClick={() => setTab(1)}>  <i style={{ marginRight: "80px", }} class="fa fa-arrow-left"></i> Back </Button>
             </PrevButtonContainer>
             {modal && (
                 <Modal>

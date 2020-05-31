@@ -53,15 +53,17 @@ function Step1({ setTab, allData, setAllData }) {
     }, []);
 
     let formFilled = (data) => {
-        let fields = ["name", "phone", "email"];
+        let fields = ["name", "phone", "email", "years"];
         let ids = [1, 2];
         let ans = true;
+        let years = data[1].year && data[1].year.length > 1 && data[2].year && data[2].year.length > 1;
         let names = data[1].name && data[1].name.length > 1 && data[2].name && data[2].name.length > 1;
         let emails = data[1].email && validEmail(data[1].email) && data[2].email && validEmail(data[2].email);
         let phones = data[1].phone && validPhone(data[1].phone) && data[2].phone && validPhone(data[2].phone);
         console.log("names are" + names);
         console.log("emails are" + emails);
         console.log("phones are" + phones);
+        console.log("years are " + years);
         return window.location.href.includes("localhost") || (names && emails && phones);
     };
 
@@ -71,6 +73,7 @@ function Step1({ setTab, allData, setAllData }) {
 
     return (
         <div>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
             <AbsoluteCenter>
                 <h1>Let's fill out the basics about your friends...</h1>
             </AbsoluteCenter>
@@ -82,6 +85,11 @@ function Step1({ setTab, allData, setAllData }) {
                             defaultValue={allData.contact[1].name}
                             placeholder="Name..."
                             onChange={(e) => handleChange(e.target.value, 1, "name")}
+                        />
+                        <Input 
+                            defaultValue={allData.contact[1].year}
+                            placeholder="Year (i.e. 2022)..."
+                            onChange={(e) => handleChange(e.target.value, 1, "year")}
                         />
                         <Input
                             defaultValue={allData.contact[1].email}
@@ -98,17 +106,22 @@ function Step1({ setTab, allData, setAllData }) {
                 <CenterAlignContainer bg="#F5F5F5">
                     <Image bg="white" src={require("../img/person2.png")} />
                     <div>
-                        <Input
+                        <Input style = {{backgroundColor: "#F5F5F5"}}
                             defaultValue={allData.contact[2].name}
                             placeholder="Name..."
                             onChange={(e) => handleChange(e.target.value, 2, "name")}
                         />
-                        <Input
+                        <Input style = {{backgroundColor: "#F5F5F5"}}
+                            defaultValue={allData.contact[2].year}
+                            placeholder="Year (i.e. 2022)..."
+                            onChange={(e) => handleChange(e.target.value, 2, "year")}
+                        />
+                        <Input style = {{backgroundColor: "#F5F5F5"}}
                             defaultValue={allData.contact[2].email}
                             placeholder="Email..."
                             onChange={(e) => handleChange(e.target.value, 2, "email")}
                         />
-                        <Input
+                        <Input style = {{backgroundColor: "#F5F5F5"}}
                             defaultValue={allData.contact[2].phone}
                             placeholder="Phone..."
                             onChange={(e) => handleChange(e.target.value, 2, "phone")}
@@ -119,7 +132,7 @@ function Step1({ setTab, allData, setAllData }) {
             <NextButtonContainer>
                 <Button onClick={() => valid && setTab(2)} disabled={!valid}>
                     Next
-                </Button>
+                    <i style={{ marginLeft: "100px", }} class="fa fa-arrow-right"></i> </Button>
             </NextButtonContainer>
         </div>
     );

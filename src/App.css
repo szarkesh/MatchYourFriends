@@ -2,10 +2,22 @@
     text-align: center;
 }
 
+.text {
+    color: "#2D2D2D";
+}
+
+.subtitle {
+    color: skyblue;
+    font-style: italic;
+}
+
+.fa fa-arrow-right {
+    padding: 50px;
+}
+
 input {
     outline: none;
 }
-
 .App-logo {
     height: 40vmin;
     pointer-events: none;

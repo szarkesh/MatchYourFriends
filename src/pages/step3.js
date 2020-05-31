@@ -65,7 +65,10 @@ function Step3({ setTab, allData, sent, setSent }) {
         });
     };
     return (
+
         <Container>
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+
             <CenterColumn>
                 <h1>Great, now you're ready to go. Here's what happens now.</h1>
                 <ol style={{ maxWidth: "500px" }}>
@@ -87,7 +90,9 @@ function Step3({ setTab, allData, sent, setSent }) {
                 </Button>
             </CenterColumn>
             <PrevButtonContainer>
-                <Button onClick={() => setTab(2)}>Back</Button>
+                <Button onClick={() => setTab(2)}>
+                
+                <i style={{ marginRight: "80px", }} class="fa fa-arrow-left"></i> Back </Button>
             </PrevButtonContainer>
         </Container>
     );

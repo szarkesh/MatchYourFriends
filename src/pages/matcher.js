@@ -60,12 +60,16 @@ function validEmail(mail) {
 function Matcher() {
     let [tab, setTab] = React.useState(1);
 
+    let [sent, setSent] = React.useState(false);
+
     let [allData, setAllData] = React.useState({ contact: { 1: {}, 2: {} }, interests: { 1: {}, 2: {}, 3: {} } });
     return (
         <>
             {tab == 1 && <Step1 allData={allData} setAllData={setAllData} setTab={setTab} />}
             {tab == 2 && <Step2 allData={allData} setAllData={setAllData} setTab={setTab} />}
-            {tab == 3 && <Step3 allData={allData} setAllData={setAllData} setTab={setTab} />}
+            {tab == 3 && (
+                <Step3 allData={allData} setAllData={setAllData} setTab={setTab} sent={sent} setSent={setSent} />
+            )}
         </>
     );
 }

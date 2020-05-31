@@ -88,7 +88,7 @@ const Dropdowns = [
     { name: "Favorite Pace", choices: ["West Coast", "East Coast"] },
 ];
 
-function Step2({ setTab, allData, setAllData }) {
+function Step2({ setTab, allData, setAllData, sent, setSent }) {
     let valid = false;
     let [modal, setModal] = React.useState(false);
     let [modalIndex, setModalIndex] = React.useState(null);

@@ -10,7 +10,7 @@ export const AbsoluteCenter = styled.div`
 export const Button = styled.div`
     padding: 12px;
     font-size: 17px;
-    cursor: pointer;
+    cursor: ${(props) => (props.disabled ? "default" : "pointer")};
     border-radius: 5px;
     background-color: #f76c6c;
     min-width: 100px;
@@ -42,6 +42,11 @@ export const Container = styled.div`
     @media (max-width: 500px) {
         padding: 5% 2%;
     }
+`;
+
+export const Red = styled.span`
+    color: #f76c6c;
+    font-weight: bold;
 `;
 
 export const Input = styled.input`

@@ -8,19 +8,12 @@ import {
     NextButtonContainer,
     PrevButtonContainer,
     Button,
+    Red,
 } from "../shared.js";
 
-let accountSid = "AC137737e38e5f757d10fa5c5054465a70";
-let authToken = "AC137737e38e5f757d10fa5c5054465a70:81601203d44e1e9f240984dbb227d82c";
-const client = require("twilio")(accountSid, authToken);
-
-const Red = styled.span`
-    color: #f76c6c;
-    font-weight: bold;
-`;
-
-function Step3({ setTab, allData }) {
+function Step3({ setTab, allData, sent, setSent }) {
     let sendMsgs = () => {
+        console.log("sending messages to " + allData.contact[1].phone + "and " + allData.contact[2].phone);
         fetch("/api/messages", {
             method: "POST",
             headers: {
@@ -28,9 +21,27 @@ function Step3({ setTab, allData }) {
             },
             body: JSON.stringify({
                 to: allData.contact[1].phone,
-                body: `A friend has decided you and ${allData.contact[2].name} would be a good match.`,
+                body: `A friend has decided you and ${
+                    allData.contact[2].name
+                } would be a good match. Click the link to see why: ${
+                    window.location.protocol +
+                    "//" +
+                    window.location.host +
+                    "/matched?name=" +
+                    allData.contact[2].name +
+                    "&phone=" +
+                    allData.contact[2].phone
+                }`,
             }),
-        });
+        })
+            .then((res) => res.json())
+            .then((res) => {
+                if (res.success == true) {
+                    setSent(true);
+                } else {
+                    alert("Text messages could not be sent. Make sure you entered the numbers correctly.");
+                }
+            });
 
         fetch("/api/messages", {
             method: "POST",
@@ -39,7 +50,17 @@ function Step3({ setTab, allData }) {
             },
             body: JSON.stringify({
                 to: allData.contact[2].phone,
-                body: `A friend has decided you and ${allData.contact[1].name} would be a good match.`,
+                body: `A friend has decided you and ${
+                    allData.contact[1].name
+                } would be a good match. Click the link to see why: ${
+                    window.location.protocol +
+                    "//" +
+                    window.location.host +
+                    "/matched?name=" +
+                    allData.contact[1].name +
+                    "&phone=" +
+                    allData.contact[1].phone
+                }`,
             }),
         });
     };
@@ -61,7 +82,9 @@ function Step3({ setTab, allData }) {
                         to snap ;).
                     </li>
                 </ol>
-                <Button onClick={() => sendMsgs()}>Send the text!</Button>
+                <Button disabled={sent} onClick={() => !sent && sendMsgs()}>
+                    {sent ? "Messages sent!" : "Send the text!"}
+                </Button>
             </CenterColumn>
             <PrevButtonContainer>
                 <Button onClick={() => setTab(2)}>Back</Button>

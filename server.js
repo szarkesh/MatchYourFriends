@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const client = require("twilio")("AC137737e38e5f757d10fa5c5054465a70", "81601203d44e1e9f240984dbb227d82c");
+const client = require("twilio")("AC137737e38e5f757d10fa5c5054465a70", "d4dc47939b44a2a7b0a91234bf6665d2");
 const path = require("path");
 
 const app = express();
@@ -13,6 +13,7 @@ app.use(express.static(path.join(__dirname, "build")));
 
 app.post("/api/messages", (req, res) => {
     res.header("Content-Type", "application/json");
+    console.log(req.body);
     client.messages
         .create({
             from: "2055512859",

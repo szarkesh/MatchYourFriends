@@ -37,7 +37,7 @@ function validEmail(mail) {
     return false;
 }
 
-function Step1({ setTab, allData, setAllData }) {
+function Step1({ allData, setAllData, setTab }) {
     let [filled, setFilled] = React.useState(false);
     let [valid, setValid] = React.useState(false);
 
@@ -73,7 +73,6 @@ function Step1({ setTab, allData, setAllData }) {
 
     return (
         <div>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
             <AbsoluteCenter>
                 <h1>Let's fill out the basics about your friends...</h1>
             </AbsoluteCenter>
@@ -86,7 +85,7 @@ function Step1({ setTab, allData, setAllData }) {
                             placeholder="Name..."
                             onChange={(e) => handleChange(e.target.value, 1, "name")}
                         />
-                        <Input 
+                        <Input
                             defaultValue={allData.contact[1].year}
                             placeholder="Year (i.e. 2022)..."
                             onChange={(e) => handleChange(e.target.value, 1, "year")}
@@ -106,22 +105,22 @@ function Step1({ setTab, allData, setAllData }) {
                 <CenterAlignContainer bg="#F5F5F5">
                     <Image bg="white" src={require("../img/person2.png")} />
                     <div>
-                        <Input style = {{backgroundColor: "#F5F5F5"}}
+                        <Input style={{ backgroundColor: "#F5F5F5" }}
                             defaultValue={allData.contact[2].name}
                             placeholder="Name..."
                             onChange={(e) => handleChange(e.target.value, 2, "name")}
                         />
-                        <Input style = {{backgroundColor: "#F5F5F5"}}
+                        <Input style={{ backgroundColor: "#F5F5F5" }}
                             defaultValue={allData.contact[2].year}
                             placeholder="Year (i.e. 2022)..."
                             onChange={(e) => handleChange(e.target.value, 2, "year")}
                         />
-                        <Input style = {{backgroundColor: "#F5F5F5"}}
+                        <Input style={{ backgroundColor: "#F5F5F5" }}
                             defaultValue={allData.contact[2].email}
                             placeholder="Email..."
                             onChange={(e) => handleChange(e.target.value, 2, "email")}
                         />
-                        <Input style = {{backgroundColor: "#F5F5F5"}}
+                        <Input style={{ backgroundColor: "#F5F5F5" }}
                             defaultValue={allData.contact[2].phone}
                             placeholder="Phone..."
                             onChange={(e) => handleChange(e.target.value, 2, "phone")}

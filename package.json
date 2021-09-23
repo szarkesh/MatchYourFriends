@@ -4,7 +4,14 @@
     "proxy": "http://localhost:3001",
     "private": true,
     "dependencies": {
-
+        "@craco/craco": "^6.3.0",
+        "@emotion/react": "^11.4.1",
+        "@emotion/styled": "^11.3.0",
+        "@fortawesome/fontawesome-svg-core": "^1.2.36",
+        "@fortawesome/free-solid-svg-icons": "^5.15.4",
+        "@fortawesome/react-fontawesome": "^0.1.15",
+        "@material-ui/lab": "^4.0.0-alpha.60",
+        "@mui/material": "^5.0.0-rc.1",
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.3.2",
         "@testing-library/user-event": "^7.1.2",
@@ -12,17 +19,19 @@
         "path": "^0.12.7",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
+        "react-hook-form": "^7.15.4",
+        "react-hook-form-resolvers": "0.0.1",
         "react-router-dom": "^5.2.0",
-        "react-scripts": "3.4.1",
         "styled-components": "^5.1.1",
         "twilio": "^3.44.0"
     },
     "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test",
+        "start": "craco start",
+        "build": "craco build",
+        "test": "craco test",
         "eject": "react-scripts eject",
-        "watch": "npm-watch"
+        "watch": "npm-watch",
+        "watch-css": "postcss css/tailwind.css -o public/build/tailwind.css"
     },
     "watch": {
         "build": "src/",
@@ -44,7 +53,10 @@
         ]
     },
     "devDependencies": {
+        "autoprefixer": "^9.8.6",
         "npm-watch": "^0.6.0",
-        "react-scripts": "0.9.5"
+        "postcss": "^7.0.36",
+        "react-scripts": "^4.0.3",
+        "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.14"
     }
 }

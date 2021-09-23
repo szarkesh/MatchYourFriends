@@ -62,7 +62,6 @@ function Matcher() {
 
     let [sent, setSent] = React.useState(false);
 
-    let [allData, setAllData] = React.useState({ contact: { 1: {}, 2: {} }, interests: { 1: {}, 2: {}, 3: {} } });
     return (
         <>
             {tab == 1 && <Step1 allData={allData} setAllData={setAllData} setTab={setTab} />}

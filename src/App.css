@@ -29,6 +29,14 @@ input {
     }
 }
 
+.coming-soon {
+    height: 8vmin;
+}
+
+.arrow-down{
+    height:6vmin;
+}
+
 .App-header {
     background-color: #282c34;
     min-height: 100vh;
@@ -40,8 +48,17 @@ input {
     color: white;
 }
 
+input {
+    padding:10px
+}
+
+
 .App-link {
     color: #61dafb;
+}
+
+.my-shadow{
+    box-shadow: 7px 7px 0px 0px rgba(100, 30, 2, 0.75);
 }
 
 @keyframes App-logo-spin {

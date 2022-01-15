@@ -1,62 +1,24 @@
 {
-    "name": "matchyourfriends",
-    "version": "0.1.0",
-    "proxy": "http://localhost:3001",
-    "private": true,
-    "dependencies": {
-        "@craco/craco": "^6.3.0",
-        "@emotion/react": "^11.4.1",
-        "@emotion/styled": "^11.3.0",
-        "@fortawesome/fontawesome-svg-core": "^1.2.36",
-        "@fortawesome/free-solid-svg-icons": "^5.15.4",
-        "@fortawesome/react-fontawesome": "^0.1.15",
-        "@material-ui/lab": "^4.0.0-alpha.60",
-        "@mui/material": "^5.0.0-rc.1",
-        "@testing-library/jest-dom": "^4.2.4",
-        "@testing-library/react": "^9.3.2",
-        "@testing-library/user-event": "^7.1.2",
-        "express": "^4.17.1",
-        "path": "^0.12.7",
-        "react": "^16.13.1",
-        "react-dom": "^16.13.1",
-        "react-hook-form": "^7.15.4",
-        "react-hook-form-resolvers": "0.0.1",
-        "react-router-dom": "^5.2.0",
-        "styled-components": "^5.1.1",
-        "twilio": "^3.44.0"
-    },
-    "scripts": {
-        "start": "craco start",
-        "build": "craco build",
-        "test": "craco test",
-        "eject": "react-scripts eject",
-        "watch": "npm-watch",
-        "watch-css": "postcss css/tailwind.css -o public/build/tailwind.css"
-    },
-    "watch": {
-        "build": "src/",
-        "start": "src/"
-    },
-    "eslintConfig": {
-        "extends": "react-app"
-    },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
-    },
-    "devDependencies": {
-        "autoprefixer": "^9.8.6",
-        "npm-watch": "^0.6.0",
-        "postcss": "^7.0.36",
-        "react-scripts": "^4.0.3",
-        "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.14"
-    }
+  "name": "matchyourfriends",
+  "version": "1.0.0",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "server.js",
+  "dependencies": {
+    "axios": "^0.21.4",
+    "body-parser": "^1.19.1",
+    "cors": "^2.8.5",
+    "dayjs": "^1.10.7",
+    "express": "^4.17.2",
+    "lodash": "^4.17.21",
+    "path": "^0.12.7",
+    "twilio": "^3.73.0",
+    "url-parse": "^1.5.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

@@ -16,16 +16,17 @@ app.use(express.static(path.join(__dirname, "client/build")));
 app.post("/api/messages", (req, res) => {
   res.header("Content-Type", "application/json");
   console.log(req.body);
+  let addendum = "\n\nMessage sent with MatchBox. Make your own matches match-box.herokuapp.com!"
   Promise.all([
     client.messages.create({
       from: "9034943977",
       to: req.body.phone1,
-      body: req.body.message1,
+      body: req.body.message1 + addendum,
     }),
     client.messages.create({
       from: "9034943977",
       to: req.body.phone2,
-      body: req.body.message2,
+      body: req.body.message2 + addendum,
     }),
   ])
     .then(() => {

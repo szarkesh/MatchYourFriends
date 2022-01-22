@@ -225,15 +225,13 @@ function Home() {
             ))}
           </div>
         </div>
-        {contactDataValid && (
           <>
             <div className="flex-center">
-              <Button onClick={() => goToSetInterests()}>What makes them a good match?</Button>
+              <Button disabled={!contactDataValid} onClick={() => goToSetInterests()}>What makes them a good match?</Button>
               <img className="text-blue-dark arrow-down" src={ArrowDown}></img>
               <div></div>
             </div>
           </>
-        )}
       </div>
       {settingInterests && (
         <>

@@ -55,7 +55,7 @@
     "devDependencies": {
         "autoprefixer": "^9.8.6",
         "npm-watch": "^0.6.0",
-        "postcss": "^7.0.36",
+        "postcss": "^8.2.13",
         "react-scripts": "^4.0.3",
         "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.14"
     }
